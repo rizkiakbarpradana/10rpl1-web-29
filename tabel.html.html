@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body { 
+  margin: 0;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 12px 15px;
+}
+
+tr:nth-child {
+  background-color: #dddddd ;
+  text-align: left;
+}
+
+h2 {
+    text-align: center;
+}
+
+.Status {
+    text-align: center;
+    background-color:rgb(214,214,214);
+}
+th {
+    color: #dddddd;
+    background-color: rgb(42, 20, 188);
+    padding: 14px;
+    text-align: left;
+}
+</style>
+<body>
+
+<h2>Data Biodata Siswa PPLG</h2>
+
+<table>
+    <thead>
+      <tr>
+      <th>Field / atribut </th>
+      <th>keterangan / Hasil input</th>
+     </tr>
+    </thead>
+
+    <tbody>
+       <tr>
+         <td>Nama</td>
+         <td>Rizki Akbar Pradana</td>
+       </tr>
+       <tr>
+         <td>Alamat</td>
+         <td>Jl.Gotong Royong,RT 03,RW 08,Dusun Gendogo,Desa Balesari, Kec. Ngajum</td>
+       </tr>
+       <tr>
+         <td>Jurusan</td>
+         <td>RPL</td>
+       </tr>
+       <tr>
+         <td>Jenis kelamin</td>
+         <td>Laki-laki</td>
+       </tr>
+       <tr>
+         <td>Tinggi Badan (cm) </td>
+         <td>163</td>
+       </tr>
+       <tr>
+         <td>Berat Badan (kg) </td>
+         <td>62</td>
+       </tr>
+       <tr>
+         <td>Hobi </td>
+         <td>Gardening</td>
+       </tr>
+       <tr>
+         <td>No.HP </td>
+         <td>085935041997</td>
+       </tr>
+    </tbody>
+
+  <tr>
+    <td colspan="2" class="Status"><strong>status: </strong> Data berhasil divalidasi dan direkap ke dalam tabel</td>
+  </tr>
+
+</table>
+
+</body>
+</html>
+
+<hr>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Marge & Split</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .tabel-utama {
+            width: 700px;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        .tabel-utama th {
+            background-color: #1976d2;
+            color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .tabel-utama td {
+            border: 1px solid #ddd;
+            padding: 9px;
+            font-size: 14px;
+        }
+
+        /* Kolom kategori */
+        .kategori {
+            width: 190px;
+        }
+
+        /* Kolom atribut */
+        .atribut {
+            width: 220px;
+        }
+
+        /* Kolom hasil siswa */
+        .hasil {
+            width: 290px;
+        }
+
+        /* MERGE CELL */
+        .merge {
+            height: 145px;
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+            font-size: 16px !important;
+            border: 3px solid #b52b27 !important;
+        }
+
+        .merge span {
+            color: #b52b27;
+            font-size: 12px;
+        }
+
+        /* DATA FISIK */
+        .data-fisik {
+            vertical-align: middle;
+            font-weight: bold;
+        }
+
+        /* SPLIT CELL */
+        .split-box {
+            border: 3px dashed #159447;
+            padding: 8px;
+            color: #159447;
+            font-weight: bold;
+        }
+
+        .split-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .split-box td {
+            border: 1px solid #159447;
+            padding: 6px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        /* KETERANGAN */
+        .keterangan {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px !important;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Marge &amp; Split</h2>
+
+    <table class="tabel-utama">
+
+        <!-- HEADER -->
+        <tr>
+            <th class="kategori">Kategori Data</th>
+            <th class="atribut">Atribut Form</th>
+            <th class="hasil">Hasil Isian Siswa</th>
+        </tr>
+
+
+        <!-- IDENTITAS PRIBADI -->
+        <tr>
+
+            <!-- MERGE 3 BARIS -->
+            <td rowspan="3" class="merge">
+                IDENTITAS PRIBADI
+                <br>
+                <span>(Merged 3 Baris)</span>
+            </td>
+
+            <td>Nama:</td>
+            <td>Rizki Akbar Pradana</td>
+
+        </tr>
+
+        <tr>
+            <td>Alamat:</td>
+            <td>JL. GOTONG ROYONG,DUSUN GENDOGO,DESA BALESARI</td>
+        </tr>
+
+        <tr>
+            <td>No. HP:</td>
+            <td>085935041997</td>
+        </tr>
+
+
+        <!-- AKADEMIK -->
+        <tr>
+            <td>Akademik</td>
+            <td>Jurusan:</td>
+            <td>RPL</td>
+        </tr>
+
+
+        <!-- PREFERENSI -->
+        <tr>
+            <td>Preferensi</td>
+            <td>Jenis Kelamin:</td>
+            <td>Laki-laki</td>
+        </tr>
+
+
+        <!-- DATA FISIK -->
+        <tr>
+            <td class="data-fisik">
+                Data Fisik
+            </td>
+
+            <td>
+                Pengukuran Badan:
+            </td>
+
+            <td>
+
+                <!-- SPLIT CELL -->
+                <div class="split-box">
+
+                    SPLIT CELL (Dipecah):
+
+                    <table>
+                        <tr>
+                            <td>Tinggi:</td>
+                            <td>163 cm</td>
+                        </tr>
+
+                        <tr>
+                            <td>Berat:</td>
+                            <td>63 kg</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+            </td>
+        </tr>
+
+
+        <!-- LAIN-LAIN -->
+        <tr>
+            <td>Lain-lain</td>
+            <td>Hobi:</td>
+            <td>Berkebun</td>
+        </tr>
+
+
+        <!-- KETERANGAN -->
+        <tr>
+            <td colspan="3" class="keterangan">
+                Garis Merah = Area Merge Cell |
+                Garis Hijau = Area Split Cell
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
+
+<hr>
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabel Kompleks Merge & Split</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .tabel-utama {
+            width: 680px;
+            margin: auto;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        /* HEADER */
+        .tabel-utama th {
+            background-color: #1976d2;
+            color: white;
+            border: 1px solid #ddd;
+            padding: 10px 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* SEMUA CELL */
+        .tabel-utama td {
+            border: 1px solid #ddd;
+            padding: 9px;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+
+        /* LEBAR KOLOM */
+        .kolom1 {
+            width: 18%;
+        }
+
+        .kolom2 {
+            width: 25%;
+        }
+
+        .kolom3 {
+            width: 25%;
+        }
+
+        .kolom4 {
+            width: 32%;
+        }
+
+        /* MERGE DATA SISWA */
+        .merge {
+            height: 125px;
+            text-align: center;
+            font-weight: bold;
+            border: 3px solid #b52b27 !important;
+        }
+
+        .merge .judul {
+            font-size: 15px;
+        }
+
+        .merge .keterangan {
+            color: #b52b27;
+            font-size: 10px;
+        }
+
+        /* MERGE KONTAK */
+        .kontak {
+            text-align: center;
+            font-weight: bold;
+            border: 3px solid #b52b27 !important;
+        }
+
+        .kontak span {
+            color: #b52b27;
+            font-size: 10px;
+        }
+
+        /* SPLIT CELL */
+        .split {
+            border: 3px dashed #159447;
+            padding: 7px;
+            color: #159447;
+            font-weight: bold;
+        }
+
+        .split table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .split table td {
+            border: 1px solid #159447;
+            padding: 5px;
+            color: #222;
+            font-weight: normal;
+            background-color: white;
+        }
+
+        /* KETERANGAN BAWAH */
+        .catatan {
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px !important;
+        }
+
+        .merah {
+            color: #b52b27;
+        }
+
+        .hijau {
+            color: #159447;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>
+        Tantangan Tabel Kompleks =&gt;
+        Merge (Merah) &amp; Split (Hijau)
+    </h2>
+
+    <table class="tabel-utama">
+
+        <!-- HEADER -->
+        <tr>
+            <th class="kolom1">Kategori<br>Utama</th>
+            <th class="kolom2">Sub Kategori</th>
+            <th class="kolom3">Atribut Isian</th>
+            <th class="kolom4">Detail Data / Nilai</th>
+        </tr>
+
+
+        <!-- DATA SISWA -->
+        <tr>
+
+            <!-- MERGE 3 BARIS -->
+            <td rowspan="3" class="merge">
+
+                <div class="judul">
+                    DATA SISWA
+                </div>
+
+                <div class="keterangan">
+                    (Rowspan 3)
+                </div>
+
+            </td>
+
+            <td rowspan="2">
+                Identitas Utama
+            </td>
+
+            <td>
+                Nama Lengkap
+            </td>
+
+            <td>
+                Rizki Akbar Pradana
+            </td>
+
+        </tr>
+
+
+        <!-- BARIS ALAMAT -->
+        <tr>
+
+            <td>
+                Alamat Rumah
+            </td>
+
+            <td>
+                JL. GOTONG ROYONG, DUSUN GENDOGO, DESA BALESARI
+            </td>
+
+        </tr>
+
+
+        <!-- KONTAK AKTIF -->
+        <tr>
+
+            <!-- COLSPAN 2 -->
+            <td colspan="2" class="kontak">
+
+                Kontak Aktif: 085935041997
+                <span>(Colspan 2)</span>
+
+            </td>
+
+            <td>
+                Hobi: Berkebun
+            </td>
+
+        </tr>
+
+
+        <!-- AKADEMIK -->
+        <tr>
+
+            <td>
+                Akademik
+            </td>
+
+            <td>
+                Jurusan PPLG
+            </td>
+
+            <td>
+                Pilihan Kelas
+            </td>
+
+            <td>
+                RPL (Rekayasa<br>
+                Perangkat Lunak)
+            </td>
+
+        </tr>
+
+
+        <!-- PREFERENSI -->
+        <tr>
+
+            <td>
+                Preferensi
+            </td>
+
+            <td>
+                Gender
+            </td>
+
+            <td>
+                Jenis Kelamin
+            </td>
+
+            <td>
+                Laki-laki
+            </td>
+
+        </tr>
+
+
+        <!-- ANTROPOMETRI -->
+        <tr>
+
+            <td style="height:150px;">
+                Antropometri
+            </td>
+
+            <td>
+                Pengukuran Fisik
+            </td>
+
+            <td>
+                Parameter Badan
+            </td>
+
+            <td>
+
+                <!-- SPLIT CELL -->
+                <div class="split">
+
+                    SPLIT CELL (Dipecah)
+                    <br>
+                    jadi 2 sub-sel):
+
+                    <table>
+
+                        <tr>
+                            <td>
+                                <b>Tinggi Badan:</b>
+                                163 cm
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <b>Berat Badan:</b>
+                                63 kg
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+
+        <!-- KETERANGAN -->
+        <tr>
+
+            <td colspan="4" class="catatan">
+
+                Keterangan:
+                Kotak bergaris
+                <span class="merah">Merah</span>
+                adalah hasil **Merge Cell**,
+                sedangkan kotak bergaris
+                <span class="hijau">Hijau</span>
+                adalah simulasi **Split Cell**.
+
+            </td>
+
+        </tr>
+
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Biodata</title>
+    <style>
+       
+        body {
+            background-color: #faf9f9;
+            color: #050505;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #fdfcfc;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(5, 5, 5, 0.3);
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            background-color: #fbf9f9;
+            border: 1px solid #050505;
+            border-radius: 4px;
+            color: #060606;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        /* Gaya Tampilan Hasil */
+        .result-container {
+            display: none; /* Tersembunyi di awal */
+        }
+
+        .result-item {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .result-item span {
+            font-weight: bold;
+        }
+
+        .btn-back {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .btn-back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- KONTANER FORM UTAMA -->
+    <div class="container" id="formContainer">
+        <h2>BIODATA</h2>
+        <form id="biodataForm" onsubmit="simpanData(event)">
+            
+            <div class="form-group">
+                <label>Nama:</label>
+                <input type="text" id="nama" required>
+            </div>
+
+            <div class="form-group">
+                <label>Alamat:</label>
+                <input type="text" id="alamat" required>
+            </div>
+
+            <div class="form-group">
+                <label>Jurusan:</label>
+                <select id="jurusan">
+                    <option value="RPL">RPL</option>
+                    <option value="TKJ">TKJ</option>
+                    <option value="TKR">TKR</option>
+                    <option value="TSM">TSM</option>
+                    <option value="TEI">TEI</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Kelamin:</label>
+                <div class="radio-group">
+                    <input type="radio" id="laki" name="jk" value="Laki-laki" checked>
+                    <label for="laki">Laki-laki</label>
+                    
+                    <input type="radio" id="perempuan" name="jk" value="Perempuan">
+                    <label for="perempuan">Perempuan</label>
+                    
+                    <input type="radio" id="boti" name="jk" value="Boti">
+                    <label for="boti">Boti</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tinggi Badan (cm):</label>
+                <input type="number" id="tinggi">
+            </div>
+
+            <div class="form-group">
+                <label>Berat Badan (kg):</label>
+                <input type="number" id="berat">
+            </div>
+
+            <div class="form-group">
+                <label>Hobi:</label>
+                <input type="text" id="hobi">
+            </div>
+
+            <div class="form-group">
+                <label>No. HP:</label>
+                <input type="text" id="nohp" inputmode="numeric" pattern="[0-9]{13}" minlength="13" maxlength="13" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Simpan</button>
+        </form>
+    </div>
+
+    <!-- KONTANER HASIL SIMPAN -->
+    <div class="container result-container" id="resultContainer">
+        <h2>Data Berhasil Disimpan</h2>
+        
+        <div class="result-item">Nama: <span id="resNama"></span></div>
+        <div class="result-item">Alamat: <span id="resAlamat"></span></div>
+        <div class="result-item">Jurusan: <span id="resJurusan"></span></div>
+        <div class="result-item">Jenis Kelamin: <span id="resJK"></span></div>
+        <div class="result-item">Tinggi Badan: <span id="resTinggi"></span> cm</div>
+        <div class="result-item">Berat Badan: <span id="resBerat"></span> kg</div>
+        <div class="result-item">Hobi: <span id="resHobi"></span></div>
+        <div class="result-item">No. HP: <span id="resNoHP"></span></div>
+
+        <a class="btn-back" onclick="kembaliKeForm()">Kembali ke Form</a>
+    </div>
+
+    <script>
+        
+
+        function simpanData(event) {
+            event.preventDefault(); 
+
+            
+            const nama = document.getElementById('nama').value;
+            const alamat = document.getElementById('alamat').value;
+            const jurusan = document.getElementById('jurusan').value;
+            const jk = document.querySelector('input[name="jk"]:checked').value;
+            const tinggi = document.getElementById('tinggi').value;
+            const berat = document.getElementById('berat').value;
+            const hobi = document.getElementById('hobi').value;
+            const nohp = document.getElementById('nohp').value;
+
+            
+            document.getElementById('resNama').innerText = nama;
+            document.getElementById('resAlamat').innerText = alamat;
+            document.getElementById('resJurusan').innerText = jurusan;
+            document.getElementById('resJK').innerText = jk;
+            document.getElementById('resTinggi').innerText = tinggi;
+            document.getElementById('resBerat').innerText = berat;
+            document.getElementById('resHobi').innerText = hobi;
+            document.getElementById('resNoHP').innerText = nohp;
+
+            
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'block';
+        }
+
+        
+        function kembaliKeForm() {
+            
+            document.getElementById('formContainer').style.display = 'block';
+            document.getElementById('resultContainer').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
